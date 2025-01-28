@@ -76,7 +76,8 @@ def signup():
             flash("You are already logged in.", "info")
             return redirect(url_for("dashboard.index"))
 
-        else: render_template("signup.html")
+        else: 
+            return render_template("signup.html")
 
 
 # OTP Verification Route
