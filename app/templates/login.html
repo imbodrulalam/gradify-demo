@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gradify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* Add custom styles for the Login page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .login-box {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 3rem;
+            width: 350px;
+            text-align: center;
+        }
+
+        .login-box h1 {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .login-box .flash-messages {
+            margin-bottom: 1rem;
+        }
+
+        .login-box .alert {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .login-box .alert.success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .login-box .alert.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        .login-box label {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+            display: block;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .login-box input[type="email"] {
+            margin-top: 0;
+        }
+
+        .login-box button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-box p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .login-box a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <div class="login-container">
+        <div class="login-box">
+            <!-- Brand Name/Logo -->
+            <div class="text-center mb-6">
+                <a href="{{ url_for('home.index') }}"
+                    class="text-blue-600 text-3xl font-extrabold tracking-wide hover:underline">
+                    Gradify
+                </a>
+            </div>
+
+            <h1>Login to Gradify</h1>
+
+            <!-- Flash Messages Section -->
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert {{ category }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+
+            <form method="POST">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" required placeholder="Enter your password">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up here</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

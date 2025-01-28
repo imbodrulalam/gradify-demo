@@ -1,0 +1,45 @@
+<!-- app/templates/pricing.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="pricing">
+        <div class="container">
+            <h1>Choose Your Plan</h1>
+            <div class="pricing-plans">
+                <div class="pricing-plan">
+                    <h2>Free</h2>
+                    <p>For beginners to explore the basic features.</p>
+                    <ul>
+                        <li>1 AI-generated email per month</li>
+                        <li>Basic templates</li>
+                        <li>Email notifications</li>
+                    </ul>
+                    <p class="price">$0/month</p>
+                    <a href="{{ url_for('auth.signup') }}" class="cta-btn">Get Started</a>
+                </div>
+                <div class="pricing-plan">
+                    <h2>Pro</h2>
+                    <p>For professionals who need more flexibility.</p>
+                    <ul>
+                        <li>10 AI-generated emails per month</li>
+                        <li>Custom templates</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <p class="price">$19.99/month</p>
+                    <a href="{{ url_for('auth.signup') }}" class="cta-btn">Subscribe Now</a>
+                </div>
+                <div class="pricing-plan">
+                    <h2>Enterprise</h2>
+                    <p>For businesses with advanced needs.</p>
+                    <ul>
+                        <li>Unlimited AI-generated emails</li>
+                        <li>Dedicated account manager</li>
+                        <li>Custom integrations</li>
+                    </ul>
+                    <p class="price">$49.99/month</p>
+                    <a href="{{ url_for('auth.signup') }}" class="cta-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

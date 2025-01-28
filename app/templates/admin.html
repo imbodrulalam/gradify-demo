@@ -1,0 +1,38 @@
+<!-- app/templates/admin.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+
+<h2>Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.full_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.status }}</td>
+            <td>
+                <form action="{{ url_for('admin.activate_user', user_id=user.id) }}" method="post">
+                    <button type="submit" {% if user.status == 'active' %}disabled{% endif %}>Activate</button>
+                </form>
+                <form action="{{ url_for('admin.deactivate_user', user_id=user.id) }}" method="post">
+                    <button type="submit" {% if user.status == 'inactive' %}disabled{% endif %}>Deactivate</button>
+                </form>
+                <form action="{{ url_for('admin.delete_user', user_id=user.id) }}" method="post">
+                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else 'Gradify - SaaS App' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Gradify Logo">
+            <a href="{{ url_for('home.index') }}">Gradify</a>
+        </div>
+        <div class="nav-right">
+            <a href="{{ url_for('home.index') }}">Home</a>
+            <a href="{{ url_for('home.pricing') }}">Pricing</a>
+            <a href="{{ url_for('home.contact') }}">Contact</a> <!-- Added Contact page -->
+            {% if session.get('user') %}
+                <a href="{{ url_for('dashboard.index') }}">Dashboard</a>
+                <a href="{{ url_for('settings.index') }}">Settings</a>
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+                <a href="{{ url_for('settings.index') }}">@{{ session.get('user').get('email').split("@")[0] }}</a>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Gradify. All rights reserved.</p>
+    </footer>
+</body>
+</html>

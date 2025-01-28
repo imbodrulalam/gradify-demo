@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+
+# Python virtual environment
+venv
+*.egg-info/
+*.egg
+
+# Logs and debug files
+*.log
+*.out
+*.err
+logs/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Cache files and folders
+.cache/
+*.cache
+
+# Static file cache
+app/static/cache/
+*.gz
+
+# Flask settings
+instance/
+*.sqlite3
+
+# Python tools
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE-related files
+.vscode/
+.idea/
+*.iml
+
+# Deployment-related files
+*.pid
+*.tar.gz
+
+# Compiled translation files
+*.mo
+*.pot
+
+# Backup files
+*.bak
+*.old
+*.orig
+*.tmp

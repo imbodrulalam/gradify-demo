@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-24">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-extrabold mb-6 leading-tight">Transform Your Email Experience with AI</h1>
+            <p class="text-lg mb-8 max-w-3xl mx-auto">Leverage the power of AI to generate, manage, and optimize your emails, saving you time and enhancing productivity. Perfect for professionals and businesses alike.</p>
+            <a href="{{ url_for('auth.signup') }}" class="cta-btn bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300">Generate Email Free</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features bg-gray-100 py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Powerful Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="feature bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="icon mb-6">
+                        <div class="w-16 h-16 mx-auto text-indigo-600 text-5xl">🚀</div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">AI-Powered Email Generation</h3>
+                    <p class="text-gray-700">Craft professional and personalized emails in seconds with advanced AI technology, designed to boost your communication efficiency.</p>
+                </div>
+                <div class="feature bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="icon mb-6">
+                        <div class="w-16 h-16 mx-auto text-indigo-600 text-5xl">📊</div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">User-Friendly Dashboard</h3>
+                    <p class="text-gray-700">Easily manage, organize, and track your emails in one intuitive dashboard—no more clutter, just smooth operations.</p>
+                </div>
+                <div class="feature bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="icon mb-6">
+                        <div class="w-16 h-16 mx-auto text-indigo-600 text-5xl">🔗</div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Seamless Integrations</h3>
+                    <p class="text-gray-700">Effortlessly integrate with your email clients, CRM tools, and other platforms, so you can get more done in less time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta bg-gradient-to-r from-purple-600 to-indigo-500 text-white py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Take Your Email Productivity to the Next Level</h2>
+            <p class="text-lg mb-10 max-w-2xl mx-auto">Join thousands of professionals who trust our AI-driven email generation and management platform to simplify their work and maximize results.</p>
+        </div>
+    </section>
+{% endblock %}
